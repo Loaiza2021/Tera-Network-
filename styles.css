@@ -1,0 +1,233 @@
+/* c:\Users\Adrian\Desktop\Pasarela\styles.css */
+
+/* Estilos generales */
+:root {
+    --primary-color: #007bff; /* Azul primario */
+    --secondary-color: #6c757d; /* Gris secundario */
+    --success-color: #28a745; /* Verde éxito */
+    --error-color: #dc3545; /* Rojo error */
+    --warning-color: #ffc107; /* Amarillo advertencia */
+    --light-color: #f8f9fa; /* Gris muy claro */
+    --dark-color: #343a40; /* Gris oscuro */
+    --background-color: #002b48; /* Fondo general de la página */
+    --card-bg-color: #ffffff; /* Fondo de la tarjeta */
+    --text-color: #333;
+    --border-color: #ced4da;
+    --border-radius: 8px; /* Radio de borde para elementos */
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra para la tarjeta */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color); /* Fondo gris claro para la página */
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex; /* Usar flexbox para centrar */
+    flex-direction: column; /* Apilar logo y tarjeta verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente (si el contenido es corto) */
+    min-height: 100vh; /* Asegurar altura mínima */
+    padding: 20px; /* Espacio alrededor en pantallas pequeñas */
+}
+
+/* Contenedor del Logo */
+.logo-container {
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 25px; /* Espacio entre el logo y la tarjeta */
+    width: 100%; /* Ocupa el ancho para poder centrar */
+}
+
+/* Estilos para la imagen del logo */
+.Logo-img { /* Asegúrate que coincida con la clase en tu HTML */
+    max-width: 150px; /* Ancho máximo del logo */
+    height: auto; /* Mantener proporción */
+}
+
+/* Estilo de Tarjeta para el Contenedor Principal */
+.container.card {
+    background-color: var(--card-bg-color); /* Fondo blanco */
+    padding: 30px 40px; /* Más padding interno */
+    border-radius: var(--border-radius); /* Bordes redondeados */
+    box-shadow: var(--box-shadow); /* Sombra */
+    max-width: 500px; /* Ancho máximo de la tarjeta */
+    width: 100%; /* Ocupar el ancho disponible hasta el max-width */
+    text-align: center; /* Centrar el h1 */
+}
+
+.container h1 {
+    color: var(--dark-color);
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* Estilos del Formulario */
+#payment-form {
+    text-align: left; /* Alinear labels e inputs a la izquierda dentro del form */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilos de Error */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85em;
+    margin-top: 5px;
+    min-height: 1.2em; /* Evita saltos de layout */
+    display: none; /* Oculto por defecto */
+}
+
+.form-group input.error-input,
+.form-group select.error-input {
+    border-color: var(--error-color) !important; /* Asegurar que el borde rojo se aplique */
+}
+
+.form-group input.error-input:focus,
+.form-group select.error-input:focus {
+     box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important; /* Sombra roja al enfocar con error */
+}
+
+/* Resumen de Precios */
+.price-summary { /* Cambiado de price-summary-container */
+    margin-top: 25px; /* Espacio antes del resumen */
+    margin-bottom: 25px; /* Espacio antes del botón */
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: #fdfdfd; /* Un fondo ligeramente diferente */
+    text-align: left; /* Alinear texto a la izquierda */
+}
+
+.price-summary h3 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--dark-color);
+    text-align: center; /* Centrar el título del resumen */
+}
+
+.price-summary p {
+    display: flex;
+    justify-content: space-between; /* Alinea texto a la izquierda y precio a la derecha */
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: var(--secondary-color); /* Color grisáceo por defecto */
+}
+
+.price-summary p strong {
+    font-weight: bold; /* El precio en negrita */
+    color: var(--text-color); /* Precio en color de texto normal */
+}
+
+.price-summary hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 10px 0;
+}
+
+.price-summary p:last-of-type { /* Estilo específico para el Total */
+    font-size: 1.1em; /* Total un poco más grande */
+    color: var(--dark-color); /* Total en color más oscuro */
+    margin-top: 10px;
+}
+
+.price-summary p:last-of-type strong {
+    color: var(--primary-color); /* Precio total en color primario */
+}
+
+
+/* Botón de Pagar */
+#submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Añadir un poco de espacio arriba */
+}
+
+#submit-button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+#submit-button:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+}
+
+/* Estilos del Toast (Notificaciones) */
+.toast {
+    position: fixed;
+    bottom: 20px; /* Posición inicial (oculto) */
+    right: 20px;
+    background-color: var(--dark-color); /* Color base */
+    color: white;
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    z-index: 1000; /* Asegura que esté por encima */
+    opacity: 0; /* Invisible por defecto */
+    visibility: hidden; /* Oculto por defecto */
+    transition: opacity 0.5s, visibility 0.5s, bottom 0.5s; /* Transiciones suaves */
+    min-width: 250px; /* Ancho mínimo */
+}
+
+/* Estilo cuando el toast se muestra (se añade la clase 'show' con JS) */
+.toast.show {
+    opacity: 1; /* Hacer visible */
+    visibility: visible; /* Hacer visible */
+    bottom: 30px; /* Moverlo un poco hacia arriba al aparecer */
+}
+
+/* Colores según el tipo de notificación */
+.toast.success { background-color: var(--success-color); }
+.toast.error { background-color: var(--error-color); }
+.toast.warning { background-color: var(--warning-color); color: var(--dark-color); } /* Texto oscuro para fondo amarillo */
+
+#toast-title {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#toast-message {
+    /* Estilos adicionales si son necesarios */
+}

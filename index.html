@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasarela de Pago - Servicio de Internet</title>
+    <!-- Asegúrate que la ruta a tu CSS sea correcta -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img
+        src="/img/remove-tera.png"
+         alt="Logo de empresa "
+         class="Logo-img"
+         id="company-logo-for-pdf"
+         >
+    </div>
+
+    <div class="container card">
+        <h1>Realizar Pago de Servicio</h1>
+
+        <form id="payment-form" novalidate>
+
+            <div class="form-group">
+                <label for="plan">Seleccione su Plan:</label>
+                <select id="plan" name="plan" required>
+                    <option value="" disabled selected>-- Seleccione un Plan --</option>
+                    <!-- Opciones de plan se llenan con JS -->
+                </select>
+                <span class="error-message" id="plan-error"></span>
+            </div>
+
+            <h2>Datos del Cliente</h2>
+
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su nombre">
+                <span class="error-message" id="nombre-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required placeholder="Ingrese su apellido">
+                <span class="error-message" id="apellido-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 04141234567">
+                <span class="error-message" id="telefono-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="cedula">Cédula / RIF:</label>
+                <input type="text" id="cedula" name="cedula" required placeholder="Ej: V12345678 o J123456789">
+                <span class="error-message" id="cedula-error"></span>
+            </div>
+
+            <h2>Datos del Pago</h2>
+
+            <div class="form-group">
+                <label for="referenciaPago">Número de Referencia del Pago:</label>
+                <input type="text" id="referenciaPago" name="referenciaPago" required placeholder="Ingrese la referencia de su transferencia/pago">
+                <span class="error-message" id="referenciaPago-error"></span>
+            </div>
+
+            <!-- Resumen de Precios (Actualizado por JS) -->
+            <div class="price-summary">
+                <h3>Resumen del Monto a Pagar</h3>
+                <p>Monto Base: <strong id="base-amount-display">$0.00</strong></p>
+                <p>IVA (<span id="tax-rate-display">16</span>%): <strong id="tax-amount-display">$0.00</strong></p>
+                <hr>
+                <p>Total a Pagar: <strong id="total-amount-display">$0.00</strong></p>
+            </div>
+
+            <button type="submit" id="submit-button">Confirmar Pago</button>
+
+        </form>
+    </div>
+
+    <!-- Elemento HTML para las notificaciones Toast -->
+    <div id="toast" class="toast">
+        <strong id="toast-title">Título</strong>
+        <p id="toast-message">Mensaje de la notificación.</p>
+    </div>
+
+    <!-- Scripts (Asegúrate que las rutas sean correctas y el orden sea adecuado) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="invoice.js"></script> <!-- Contiene generateInvoice -->
+    <script src="script.js"></script> <!-- Contiene la lógica principal, validaciones y showToast -->
+
+</body>
+</html>
